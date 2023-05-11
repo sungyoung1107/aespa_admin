@@ -16,6 +16,7 @@ public class MainController {
     String adminserver;
 
     /* 에스파 관리자 화면 첫페이지 */
+    /* 에스파 */
     @RequestMapping("/")
     public String main(Model model) {
         model.addAttribute("adminserver", adminserver);

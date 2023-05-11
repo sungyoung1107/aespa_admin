@@ -79,7 +79,7 @@
             <artifactId>json-simple</artifactId>
             <version>1.1</version>
         </dependency>
-        <!-- CORS 해제 -->
+        <!-- CORS 해제 _ WebSecurityConfig와 같이 사용-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>

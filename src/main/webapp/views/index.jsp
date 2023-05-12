@@ -59,27 +59,27 @@
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
                        aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        Item
+                        Product
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                          data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/item/add">Item Add</a>
-                            <a class="nav-link" href="/item/all">Item all</a>
+                            <a class="nav-link" href="/product/add">Product Add</a>
+                            <a class="nav-link" href="/product/all">Product all</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#custLayouts"
                        aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        Cust
+                        User
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="custLayouts" aria-labelledby="headingOne"
                          data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/cust/cartInfo">Cust Cart Info</a>
-                            <a class="nav-link" href="/cust/all">Cust all</a>
+                            <a class="nav-link" href="/user/cartInfo">User Cart Info</a>
+                            <a class="nav-link" href="/user/all">User all</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#storeMarkerLayouts"

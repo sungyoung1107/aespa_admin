@@ -18,6 +18,5 @@ public class User {
     private String user_contact;
     private String user_address;
     private Date user_birthday;
-    private String admin_check;
-    //xml에 마지막 0 으로 하면 그렇게 들어감
+    private String admin_check; // 0:고객 / 1:관리자
 }

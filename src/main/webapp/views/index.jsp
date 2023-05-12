@@ -78,7 +78,7 @@
                     <div class="collapse" id="custLayouts" aria-labelledby="headingOne"
                          data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/cust/add">Cust Add</a>
+                            <a class="nav-link" href="/cust/cartInfo">Cust Cart Info</a>
                             <a class="nav-link" href="/cust/all">Cust all</a>
                         </nav>
                     </div>

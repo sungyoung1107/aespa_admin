@@ -1,12 +1,12 @@
 package com.kbstar.mapper;
 
-import com.kbstar.dto.Cust;
-import com.kbstar.frame.KBMapper;
+import com.kbstar.dto.User;
+import com.kbstar.frame.AespaMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 @Repository
 @Mapper
-public interface UserMapper extends KBMapper<String, Cust> {
+public interface UserMapper extends AespaMapper<String, User> {
 
 }

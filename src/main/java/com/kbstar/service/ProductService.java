@@ -19,29 +19,33 @@ public class ProductService implements AespaService<Integer, Product> {
      *
      * @param product
      **/
+
+    @Autowired
+    ProductMapper mapper;
+
     @Override
     public void register(Product product) throws Exception {
-
+        mapper.insert(product);
     }
 
     @Override
-    public void remove(Integer integer) throws Exception {
-
+    public void remove(Integer i) throws Exception {
+        mapper.delete(i);
     }
 
     @Override
     public void modify(Product product) throws Exception {
-
+        mapper.update(product);
     }
 
     @Override
-    public Product get(Integer integer) throws Exception {
-        return null;
+    public Product get(Integer i) throws Exception {
+        return mapper.select(i);
     }
 
     @Override
     public List<Product> get() throws Exception {
-        return null;
+        return mapper.selectall();
     }
 
 }

@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<style>
+    #item_img{
+        width:80px;
+    }
+</style>
+
+<script>
+
+</script>
 <main>
     <div class="container-fluid px-4">
         <h1 class="mt-4">Product Table</h1>
@@ -10,7 +20,7 @@
                 Product Table
             </div>
             <div class="card-body">
-                <table id="datatablesSimple">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
                         <th>Image</th>
@@ -32,14 +42,21 @@
                     </tr>
                     </tfoot>
                     <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
-                    </tr>
+                        <c:forEach var ="obj" items="${clist}">
+                            <tr>
+<%--                                <td>--%>
+<%--                                    <a href="#" data-toggle="modal" data-target="#target${obj.product_id}">--%>
+<%--                                        <img id="item_img" src="/uimg/${obj.product_imgname}">--%>
+<%--                                    </a>--%>
+<%--                                </td>--%>
+                                <td>IMAGE</td>
+                                <td>${obj.product_id}</td>
+                                <td>${obj.product_name}</td>
+                                <td><fmt:formatNumber value="${obj.product_price}" type="number" pattern="###,###원"/></td>
+                                <td><fmt:formatDate value="${obj.product_regdate}" pattern="yyyy-MM-dd:hh-mm-ss" /></td>
+                                <td>${obj.category_id}</td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kbstar.mapper.ProductMapper">
+
+<!--    <select id="search" parameterType="itemSearch" resultType="item">-->
+<!--        SELECT * FROM item-->
+<!--        <where>-->
+<!--            <if test="startdate != null and !startdate.equals('') ">-->
+<!--                rdate &gt;= TO_DATE(#{startdate},'YYYY-MM-DD')-->
+<!--            </if>-->
+<!--            <if test="enddate != null and !enddate.equals('')">-->
+<!--                AND   rdate &lt;= TO_DATE(#{enddate},'YYYY-MM-DD')+0.9999-->
+<!--            </if>-->
+<!--            <if test="name != null and !name.equals('') ">-->
+<!--                AND name LIKE '%'||#{name}||'%'-->
+<!--            </if>-->
+<!--            <if test="price != null and !price.equals('') ">-->
+<!--                AND price &gt;= #{price}-->
+<!--            </if>-->
+<!--        </where>-->
+<!--    </select>-->
+
+    <select id="select" parameterType="Integer" resultType="product">
+        SELECT * FROM product WHERE product_id=#{product_id}
+    </select>
+
+    <select id="selectall" resultType="product">
+        SELECT * FROM product
+    </select>
+
+    <insert id="insert" parameterType="product">
+        INSERT INTO product VALUES (#{product_id}, #{product_name}, #{product_price}, SYSDATE, #{product_imgname}, #{category_id})
+    </insert>
+
+    <update id="update" parameterType="product">
+        UPDATE product SET product_name=#{product_name}, product_price=#{product_price}, product_imgname=#{product_imgname} WHERE product_id=#{product_id}
+    </update>
+
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM product WHERE product_id=#{product_id}
+    </delete>
+
+</mapper>

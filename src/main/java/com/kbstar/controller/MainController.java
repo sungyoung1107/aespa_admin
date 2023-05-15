@@ -11,6 +11,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
@@ -85,7 +87,36 @@ public class MainController {
         return "index";
     }
 
+    // id 중복체크
+    @RequestMapping(value="/checkId", method= RequestMethod.POST)
+    @ResponseBody // RestController가 아닌 일반 Controller이기에 ResponseBody 필수
+    public String checkId(String user_id){
+        User user;
+        try {
+            user = userService.get(user_id);
+        } catch (Exception e) {
+            throw new RuntimeException("fail");
+        }
+        // user가 있다면, 즉, id 중복이면
+        if(user != null){
+            return "fail";
+        }
+        return "success";
+    }
 
+    // 회원 가입
+    @RequestMapping(value="/registerimpl", method= RequestMethod.POST)
+    public String registerimpl(Model model, User user, HttpSession session){
+        try {
+            user.setUser_pwd(encoder.encode(user.getUser_pwd())); // 비밀번호 암호화
+            userService.register(user);
+            session.setAttribute("loginadm", user);
+            logger.info("회원가입 성공");
+        } catch (Exception e) {
+            throw new RuntimeException("회원가입 실패");
+        }
 
+        return "redirect:/";
+    }
 
 }

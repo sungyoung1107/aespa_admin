@@ -12,9 +12,9 @@
                                 <div class="col-lg-13">
                                     <div class="card shadow-lg border-0 rounded-lg mt-5">
                                         <div class="card-header"><h3 class="text-center font-weight-light my-4">
-                                            고객님, 로그인에 성공하지 못했습니다. 다시 시도해주세요.</h3></div>
+                                            고객님, 죄송합니다. 다시 시도해주세요.</h3></div>
                                         <div class="card-body" style="text-align: center;">
-                                            <img src="https://t1.daumcdn.net/thumb/R1000x0/?fname=https://i.imgur.com/67TlU9u.jpg" style="height:400px; width:500px;">
+                                           <img src="https://t1.daumcdn.net/thumb/R1000x0/?fname=https://i.imgur.com/67TlU9u.jpg" style="height:400px; width:500px;">
                                         </div>
                                     </div>
                                 </div>

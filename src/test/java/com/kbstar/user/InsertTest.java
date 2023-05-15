@@ -17,7 +17,7 @@ public class InsertTest {
 
     @Test
     void contextLoads(){
-        User user = new User("admin03", "이뭉치", "F","1234",  "010-1234-5678", "경기도 수원시", "2023-05-10");
+        User user = new User("admin05", "이뭉치", "F","1234",  "010-1234-5678", "경기도 수원시", "2023-05-10");
 
         try {
             service.register(user);

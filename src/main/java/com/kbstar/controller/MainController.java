@@ -48,15 +48,31 @@ public class MainController {
         User user = null;
         String nextPage = "loginfail";
 
-        user = userService.get(user_id);
-        // db에 정보가 있고, 비밀번호가 일치한 경우 로그인 성공
-        if(user != null && encoder.matches(user_id, user.getUser_id())){
-            nextPage = "loginsuccess";
-            session.setMaxInactiveInterval(10000);
-            session.setAttribute("loginadm", user);
+        try {
+            user = userService.get(user_id);
+            logger.info(user_id);
+            // db에 정보가 있고, 비밀번호가 일치한 경우 로그인 성공
+//            if (user != null && encoder.matches(user_id, user.getUser_id())) {
+//                nextPage = "loginsuccess";
+//                session.setMaxInactiveInterval(10000);
+//                session.setAttribute("loginadm", user);
+//            }
+            // 암호화 이전 (나중에 지우기)
+            if (user != null && user_pwd.equals(user.getUser_pwd())) {
+                nextPage = "loginsuccess";
+                session.setMaxInactiveInterval(10000);
+                session.setAttribute("loginadm", user);
+            }
+        } catch(Exception e){
+            throw new Exception("잠시 후에 다시 시도해 주시기 바랍니다.");
         }
-
         model.addAttribute("center", nextPage);
+        return "index";
+    }
+
+    @RequestMapping("/register")
+    public String register(Model model) {
+        model.addAttribute("center", "register");
         return "index";
     }
 

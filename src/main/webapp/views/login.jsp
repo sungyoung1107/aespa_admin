@@ -38,12 +38,12 @@
                                         <div class="card-body">
                                             <form>
                                                 <div class="form-floating mb-3">
-                                                    <input class="form-control" id="user_id" type="text"
+                                                    <input class="form-control" id="user_id" name="user_id" type="text"
                                                            placeholder="Id"/>
                                                     <label for="user_id">Id</label>
                                                 </div>
                                                 <div class="form-floating mb-3">
-                                                    <input class="form-control" id="user_pwd" type="password"
+                                                    <input class="form-control" id="user_pwd" name="user_pwd" type="password"
                                                            placeholder="Password"/>
                                                     <label for="user_pwd">Password</label>
                                                 </div>
@@ -69,20 +69,6 @@
                         </form>
                     </div>
                 </main>
-            </div>
-            <div id="layoutAuthentication_footer">
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
             </div>
         </div>
     </div>

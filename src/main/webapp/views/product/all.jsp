@@ -9,16 +9,70 @@
 </style>
 
 <script>
-
+    let product_search = {
+        init:function(){
+            $('#search_btn').click(function(){
+                $('#search_form').attr({
+                    method:'get',
+                    action:'/product/search'
+                });
+                $('#search_form').submit();
+            });
+        }
+    }
+    $(function(){
+        product_search.init();
+    })
 </script>
+
 <main>
     <div class="container-fluid px-4">
         <h1 class="mt-4">Product Table</h1>
         <div class="card mb-4">
             <div class="card-header">
-                <i class="fas fa-table me-1"></i>
-                Product Table
+                <i class="fas fa-table me-1"> Product Table</i>
+                <form action  ="/product/search" method="submit" id="search_form" class="form-inline well">
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="product_name">Name:</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="product_name" class="form-control" id="product_name"
+                                   value="${ms.product_name}"
+                            >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="product_price">Price:</label>
+                        <div class="col-sm-10">
+                            <input type="number" name="product_price" class="form-control" id="product_price"
+                                   value="${ms.product_price}"
+                            >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="startdate">Start Date:</label>
+                        <div class="col-sm-10">
+                            <input type="date" name="startdate" class="form-control" id="startdate" placeholder="Enter title"
+                                   value="${ms.startdate}"
+                            >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="enddate">End Date:</label>
+                        <div class="col-sm-10">
+                            <input type="date" name="enddate" class="form-control" id="enddate" placeholder="Enter title"
+                                   value="${ms.enddate}"
+                            >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-2">
+                            <button id="search_btn" type="button" class="btn btn-info">Search</button>
+                        </div>
+                    </div>
+                </form>
             </div>
+
             <div class="card-body">
                 <table class="table table-bordered" id="datatablesSimple" width="100%" cellspacing="0">
                     <thead>

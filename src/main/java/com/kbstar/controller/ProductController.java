@@ -1,6 +1,7 @@
 package com.kbstar.controller;
 
 import com.kbstar.dto.Product;
+import com.kbstar.dto.ProductSearch;
 import com.kbstar.service.ProductService;
 import com.kbstar.util.FileUploadUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -84,15 +85,15 @@ public class ProductController {
         return "redirect:/product/all";
     }
 
-//    @RequestMapping("/search")
-//    public String search(Model model, ItemSearch ms) throws Exception {
-//        List<Item > list = null;
-//        list = itemService.search(ms);
-//        model.addAttribute("ms", ms);
-//        model.addAttribute("clist", list);
-//        model.addAttribute("center", dir+"all");
-//        return "index";
-//    }
+    @RequestMapping("/search")
+    public String search(Model model, ProductSearch ms) throws Exception {
+        List<Product> list = null;
+        list = productService.search(ms);
+        model.addAttribute("ms", ms);
+        model.addAttribute("clist", list);
+        model.addAttribute("center", dir+"all");
+        return "index";
+    }
 
 
 

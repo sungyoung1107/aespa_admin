@@ -17,7 +17,7 @@ class SelectOneTest {
     void contextLoads() {
 
         try {
-            service.get(333);
+            service.get(1000);
             log.info("정상 호출되었습니다..");
         } catch (Exception e) {
             log.info("오류..");

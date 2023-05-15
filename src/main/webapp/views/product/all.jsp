@@ -20,7 +20,7 @@
                 Product Table
             </div>
             <div class="card-body">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="datatablesSimple" width="100%" cellspacing="0">
                     <thead>
                     <tr>
                         <th>Image</th>
@@ -55,6 +55,26 @@
                                 <td><fmt:formatDate value="${obj.product_regdate}" pattern="yyyy-MM-dd:hh-mm-ss" /></td>
                                 <td>${obj.category_id}</td>
                             </tr>
+                            <!-- Modal -->
+                            <div class="modal fade" id="target${obj.product_id}" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Detail Image</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>${obj.product_name}</p>
+                                            <img src ="/uimg/${obj.product_imgname}"><br/>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="/product/detail?id=${obj.product_id}" class="btn btn-info" role="button">Detail</a>
+                                            <a href="#" class="btn btn-info" data-dismiss="modal" role="button">Close</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal End -->
                         </c:forEach>
                     </tbody>
                 </table>

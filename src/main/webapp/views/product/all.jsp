@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <style>
-    #item_img{
+    #product_img{
         width:80px;
     }
 </style>
@@ -44,13 +44,12 @@
                     <tbody>
                         <c:forEach var ="obj" items="${clist}">
                             <tr>
-<%--                                <td>--%>
-<%--                                    <a href="#" data-toggle="modal" data-target="#target${obj.product_id}">--%>
-<%--                                        <img id="item_img" src="/uimg/${obj.product_imgname}">--%>
-<%--                                    </a>--%>
-<%--                                </td>--%>
-                                <td>IMAGE</td>
-                                <td>${obj.product_id}</td>
+                                <td>
+                                    <a href="#" data-toggle="modal" data-target="#target${obj.product_id}">
+                                        <img id="product_img" src="/uimg/${obj.product_imgname}">
+                                    </a>
+                                </td>
+                                <td><a href="/product/detail?id=${obj.product_id}">${obj.product_id}</a></td>
                                 <td>${obj.product_name}</td>
                                 <td><fmt:formatNumber value="${obj.product_price}" type="number" pattern="###,###원"/></td>
                                 <td><fmt:formatDate value="${obj.product_regdate}" pattern="yyyy-MM-dd:hh-mm-ss" /></td>

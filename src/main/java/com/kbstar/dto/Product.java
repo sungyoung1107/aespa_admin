@@ -28,4 +28,11 @@ public class Product { // 6개의 칼럼
                 this.category_id = category_id;
         }
 
+        public Product(String product_name, int product_price, Date product_regdate, String product_imgname, int category_id) {
+                this.product_name = product_name;
+                this.product_price = product_price;
+                this.product_regdate = product_regdate;
+                this.product_imgname = product_imgname;
+                this.category_id = category_id;
+        }
 }

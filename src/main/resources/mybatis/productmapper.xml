@@ -35,7 +35,7 @@
     </insert>
 
     <update id="update" parameterType="product">
-        UPDATE product SET product_name=#{product_name}, product_price=#{product_price}, product_imgname=#{product_imgname} WHERE product_id=#{product_id}
+        UPDATE product SET product_name=#{product_name}, product_price=#{product_price}, product_imgname=#{product_imgname}, category_id=#{category_id} WHERE product_id=#{product_id}
     </update>
 
     <delete id="delete" parameterType="Integer">

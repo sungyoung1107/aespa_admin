@@ -29,7 +29,7 @@ public class UserService implements AespaService<String, User> {
 
     @Override
     public void modify(User user) throws Exception {
-        mapper.insert(user);
+        mapper.update(user);
     }
 
     @Override

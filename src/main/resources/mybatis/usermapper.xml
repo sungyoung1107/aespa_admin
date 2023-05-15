@@ -10,11 +10,11 @@
         SELECT * FROM shopuser
     </select>
     <insert id="insert" parameterType="user">
-        INSERT INTO shopuser VALUES (#{user_id}, #{user_pwd}, #{user_name}, #{user_gender}, #{user_contact}, #{user_address}, #{user_birthday}, #{admin_check})
+        INSERT INTO shopuser VALUES (#{user_id}, #{user_name}, #{user_gender}, #{user_pwd}, #{user_contact}, #{user_address}, SYSDATE, TO_DATE(#{user_birthday},'YYYY-MM-DD'), '1')
     </insert>
     <update id="update" parameterType="user">
-        UPDATE shopuser SET user_pwd=#{user_pwd}, user_name=#{user_name}, user_gender=#{user_gender}, user_contact=#{user_contact},
-                             user_address=#{user_address}, user_birthday=#{user_birthday}, admin_check=#{admin_check} WHERE user_id=#{user_id}
+        UPDATE shopuser SET user_name=#{user_name}, user_gender=#{user_gender}, user_pwd=#{user_pwd}, user_contact=#{user_contact},
+                             user_address=#{user_address}, user_birthday=#{user_birthday} WHERE user_id=#{user_id}
     </update>
     <delete id="delete" parameterType="String">
         DELETE FROM shopuser WHERE user_id=#{user_id}

@@ -70,11 +70,22 @@ public class MainController {
         return "index";
     }
 
+
+    @RequestMapping("/logout")
+    public String logout(Model model, HttpSession session) {
+        if(session!=null){
+            session.invalidate();
+        }
+        return "index";
+    }
+
     @RequestMapping("/register")
     public String register(Model model) {
         model.addAttribute("center", "register");
         return "index";
     }
+
+
 
 
 }

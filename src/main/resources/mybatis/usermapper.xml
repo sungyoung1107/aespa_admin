@@ -24,6 +24,6 @@
                c.cart_quantity, c.cart_date, c.cart_status, row_number() over(partition by s.user_id order by p.product_regdate asc) as rank
         from shopuser s left join cart c on s.user_id = c.user_id
         left join product p on c.product_id = p.product_id
-        where s.admin_check='0' and
+        where s.admin_check='0'
     </select>
 </mapper>

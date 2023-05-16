@@ -1,23 +1,28 @@
 package com.kbstar.user;
 
+import com.kbstar.dto.User;
 import com.kbstar.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @Slf4j
 @SpringBootTest
-public class DeleteTest {
+public class GetAllusercartTest {
 
     @Autowired
     UserService service;
 
     @Test
     void contextLoads(){
-        String id = "admin05";
+        List <User> list = null;
         try {
-            service.remove(id);
+            list = service.getAllusercart();
+            log.info(list.toString());
+            service.get();
         } catch (Exception e) {
             log.info("에러 ..... ");
            e.printStackTrace();

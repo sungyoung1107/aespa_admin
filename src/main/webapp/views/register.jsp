@@ -80,7 +80,7 @@
 
                                         <div class="input-group mb-3">
                                             <label class="input-label">성별</label>
-                                            <select class="form-control" name="user_gender">
+                                            <select class="form-control" name="user_gender" id="user_gender">
                                                 <option value="" selected>성별을 선택해주세요</option>
                                                 <option value="M">
                                                     남자
@@ -181,7 +181,6 @@
                                                     id="cancel_btn">CANCEL
                                             </button>
                                         </div>
-
                                     </div>
                                 </form>
                             </div>

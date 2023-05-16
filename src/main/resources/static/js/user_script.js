@@ -1,3 +1,4 @@
+// 회원가입 관련
 let register_form = {
 
     init: function () {
@@ -83,6 +84,36 @@ let register_form = {
         });
     }
 }
+
+// 상세페이지에서 회원정보 수정 관련
+let user_detail_form = {
+    init: function(){
+        let self = user_detail_form;
+
+        let user_address = $("#user_address1").val() + " " + $("#user_address2").val() + " " + $("#user_address3").val();
+        $("#user_address").val(user_address);
+
+        $('#update_btn').click(function(){
+            self.send();
+        });
+        $('#delete_btn').click(function(){
+            let c = confirm("삭제하시겠습니까?");
+            if(c==true){
+                location.href="/user/deleteimpl?id="+$("#user_id").val();
+            }
+        });
+    },
+
+    send: function(){
+        $('#user_detail_form').attr({
+            action : '/user/updateimpl',
+            method : 'post'
+        });
+        $('#user_detail_form').submit();
+    }
+    
+}
+
 
 // 다음 주소 api
 function DaumPostcode() {

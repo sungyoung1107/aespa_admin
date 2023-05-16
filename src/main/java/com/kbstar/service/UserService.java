@@ -41,4 +41,8 @@ public class UserService implements AespaService<String, User> {
     public List<User> get() throws Exception {
         return mapper.selectall();
     }
+
+    public List<User> getAllusercart() throws Exception {
+        return mapper.getallusercart();
+    }
 }

@@ -16,7 +16,7 @@ public class UpdateTest {
 
     @Test
     void contextLoads(){
-        User user = new User("user04", "이망치", "F", "1234", "010-0000-0000", "광명", "1990-03-01" );
+        User user = new User("admin03", "이몽치", "F", "010-0000-0000", "광명", "1990-03-01" );
         try {
             service.modify(user);
         } catch (Exception e) {

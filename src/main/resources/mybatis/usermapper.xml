@@ -25,5 +25,6 @@
         from shopuser s left join cart c on s.user_id = c.user_id
         left join product p on c.product_id = p.product_id
         where s.admin_check='0'
+        and c.user_id is not null
     </select>
 </mapper>

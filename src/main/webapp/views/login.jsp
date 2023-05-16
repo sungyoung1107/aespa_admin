@@ -54,7 +54,7 @@
                                                         Password</label>
                                                 </div>
                                                 <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                    <a class="small" href="/getPassword">Forgot Password?</a>
+                                                    <a class="small" href="/user/getPassword">Forgot Password?</a>
                                                     <button type="button" id="login_btn" class="btn btn-primary">Login
                                                     </button>
                                                 </div>

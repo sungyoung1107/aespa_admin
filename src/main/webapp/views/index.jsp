@@ -102,6 +102,10 @@
                             <a class="nav-link" href="/product/all">Product all</a>
                         </nav>
                     </div>
+                    <a class="nav-link" href="/stock/all">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Stock Management
+                    </a>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#custLayouts"
                        aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>

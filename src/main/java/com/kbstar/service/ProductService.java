@@ -1,6 +1,7 @@
 package com.kbstar.service;
 
 import com.kbstar.dto.Product;
+import com.kbstar.dto.ProductSearch;
 import com.kbstar.frame.AespaService;
 import com.kbstar.mapper.ProductMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -46,6 +47,10 @@ public class ProductService implements AespaService<Integer, Product> {
     @Override
     public List<Product> get() throws Exception {
         return mapper.selectall();
+    }
+
+    public List<Product> search(ProductSearch ms) throws Exception{
+        return mapper.search(ms);
     }
 
 }

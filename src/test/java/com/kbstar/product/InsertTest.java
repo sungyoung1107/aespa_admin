@@ -18,7 +18,8 @@ public class InsertTest {
 
     @Test
     void contextLoads(){
-        Product obj = new Product(4, "testproduct", 10000, null, "a.jpg", 100);
+        Product obj =
+                new Product(0, "testproduct", 10000, null, "a.jpg", 104);
         try {
             service.register(obj);
             log.info("등록 정상");

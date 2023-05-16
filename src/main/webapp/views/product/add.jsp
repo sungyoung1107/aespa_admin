@@ -37,12 +37,6 @@
                 <!--Register Form start -->
                 <form id="register_form" class="form-horizontal well">
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="product_id">Product ID: </label><br/>
-                        <div class="col-sm-6"> <!--name 은 서버로 보내는 이름을 의미-->
-                            <input type="text" name="product_id" class="form-control" id="product_id" placeholder="Enter ID">
-                        </div>
-                    </div><br/>
-                    <div class="form-group">
                         <label class="control-label col-sm-2" for="product_name">Name: </label><br/>
                         <div class="col-sm-6"> <!--name 은 서버로 보내는 이름을 의미-->
                             <input type="text" name="product_name" class="form-control" id="product_name" placeholder="Enter Name">
@@ -59,13 +53,25 @@
                         <div class="col-sm-6">
                             <input type="file" name="img" class="form-control" id="img" placeholder="Input Image">
                         </div>
-                    </div><br/>
+                    </div>
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="category_id">Category_ID:</label><br/>
                         <div class="col-sm-6">
                             <input type="number" name="category_id" class="form-control" id="category_id" placeholder="Input Category_id">
                         </div>
-                    </div><br/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="category_sub_id"> SUB ID: </label>
+                        <div class="col-sm-4"> <!--name 은 서버로 보내는 이름을 의미-->
+                            <select class="form-control" id="category_sub_id" name="category_sub_id" >
+                                <option value=""> 선택 </option>
+                                <option value="0"> 구분 없음 </option>
+                                <option value="1" > 캐주얼 </option>
+                                <option value="2" > 기프트 </option>
+                                <option value="3" > 웨딩 </option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button id="register_btn" type="button" class="btn btn-info">Register</button>

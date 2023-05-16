@@ -35,7 +35,7 @@
 
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="product_name">Name:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-4">
                             <input type="text" name="product_name" class="form-control" id="product_name"
                                    value="${ms.product_name}"
                             >
@@ -43,7 +43,7 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="product_price">Price:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-4">
                             <input type="number" name="product_price" class="form-control" id="product_price"
                                    value="${ms.product_price}"
                             >
@@ -51,7 +51,7 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="startdate">Start Date:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-4">
                             <input type="date" name="startdate" class="form-control" id="startdate" placeholder="Enter title"
                                    value="${ms.startdate}"
                             >
@@ -59,7 +59,7 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="enddate">End Date:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-4">
                             <input type="date" name="enddate" class="form-control" id="enddate" placeholder="Enter title"
                                    value="${ms.enddate}"
                             >
@@ -83,6 +83,7 @@
                         <th>Price</th>
                         <th>Regdate</th>
                         <th>Category ID</th>
+                        <th>Category SUB ID</th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -93,6 +94,7 @@
                         <th>Price</th>
                         <th>Regdate</th>
                         <th>Category ID</th>
+                        <th>Category SUB ID</th>
                     </tr>
                     </tfoot>
                     <tbody>
@@ -108,6 +110,7 @@
                                 <td><fmt:formatNumber value="${obj.product_price}" type="number" pattern="###,###원"/></td>
                                 <td><fmt:formatDate value="${obj.product_regdate}" pattern="yyyy-MM-dd:hh-mm-ss" /></td>
                                 <td>${obj.category_id}</td>
+                                <td>${obj.category_sub_id}</td>
                             </tr>
                             <!-- Modal -->
                             <div class="modal fade" id="target${obj.product_id}" role="dialog">

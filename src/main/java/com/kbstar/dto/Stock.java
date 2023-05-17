@@ -17,7 +17,12 @@ public class Stock {
     private int product_id;
     private int product_costprice;
     private int product_amount;
-    private int product_expectedamount; // xml 컬럼 추가
+    private int product_expectedamount;
+    // 예상 재고 계산 위함
+    private String product_name;
+    private int product_price;
+    private int stock_rank; // xml 컬럼 추가
+    private int cart_quantity;
 
     public Stock(int product_id, int product_costprice, int product_amount, int product_expectedamount) {
         this.product_id = product_id;

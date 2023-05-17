@@ -26,7 +26,7 @@
 
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Aespa ShoppingMall Detail List</h1>
+        <h1 class="mt-4">User Detail Information</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
         </ol>

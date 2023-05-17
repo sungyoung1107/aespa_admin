@@ -89,6 +89,7 @@ public class ProductController {
     public String search(Model model, ProductSearch ms) throws Exception {
         List<Product> list = null;
         list = productService.search(ms);
+
         model.addAttribute("ms", ms);
         model.addAttribute("clist", list);
         model.addAttribute("center", dir+"all");

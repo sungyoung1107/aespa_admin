@@ -19,7 +19,7 @@ public class InsertTest {
 
     @Test
     void contextLoads(){
-        Stock stock = new Stock(1000, 99999, 1);
+        Stock stock = new Stock(1000, 99999, 1, 1);
 
         try {
             service.register(stock);

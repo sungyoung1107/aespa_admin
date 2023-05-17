@@ -14,4 +14,5 @@ import java.util.List;
 @Mapper
 public interface ProductMapper extends AespaMapper<Integer, Product> {
     public List<Product> search(ProductSearch ms);
+
 }

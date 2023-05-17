@@ -70,8 +70,68 @@
       });
     }
   }
+
+  let categoryChart = {
+    init:function(){
+      $.ajax({
+        url:'/chart1',
+        success:function(data){
+          categoryChart.display(data)
+        }
+      });
+    },
+    display:function(data){
+      Highcharts.chart('container2', {
+        chart: {
+          type: 'column'
+        },
+        title: {
+          text: '카테고리별 남녀 주문량'
+        },
+        subtitle: {
+          text: 'Source: cart'
+        },
+        xAxis: {
+          categories: [
+            '101',
+            '102',
+            '103',
+            '104',
+            '105',
+            '200'
+          ],
+          crosshair: true
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: '수량(개)'
+          }
+        },
+        tooltip: {
+          headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+          pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                  '<td style="padding:0"><b>{point.y:.1f} 개</b></td></tr>',
+          footerFormat: '</table>',
+          shared: true,
+          useHTML: true
+        },
+        plotOptions: {
+          column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+          }
+        },
+        series: data
+      });
+
+    }
+  }
+
+
   $(document).ready(function () {
     stockChart.init();
+    categoryChart.init();
   });
 
 </script>
@@ -94,6 +154,7 @@
       </div>
       <div class="card-body">
         <div id="container"></div>
+        <div id="container2"></div>
       </div>
     </div>
   </div>

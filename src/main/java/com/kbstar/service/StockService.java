@@ -65,4 +65,9 @@ public class StockService implements AespaService<Integer, Stock> {
     public void modifyExpectedamount(Integer product_id) throws Exception {
         mapper.updateexpectedamount(product_id);
     }
+    // 재고 부족 리스트
+    public List<Stock> getLowstock() throws Exception {
+        return mapper.getlowstock();
+    }
+
 }

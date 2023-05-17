@@ -63,12 +63,13 @@
     <delete id="delete" parameterType="Integer">
         DELETE FROM stock WHERE product_id=#{product_id}
     </delete>
-<!--    <select id="getlowstock" resultType="stock">-->
-<!--        &#45;&#45; product가 stock 보다 중심인 비즈니스 일 때 (현재 erd)-->
-<!--        select t.*-->
-<!--        from (select p.product_id, p.product_name, s.product_costprice, p.product_price, s.product_amount, s.product_expectedamount, s.stock_updateday, s.stock_no-->
-<!--                   , rank()over (partition by p.product_id order by s.stock_no desc) as stock_rank-->
-<!--              from product p left join stock s on p.product_id=s.product_id ) t-->
-<!--        where t.stock_rank=1-->
-<!--    </select>-->
+    <!-- 재고가 1개 미만이거나 입고 처리를 안한 것 출력 -->
+    <!-- product가 stock 보다 중심인 비즈니스 일 때 (현재 erd) -->
+    <select id="getlowstock" resultType="stock">
+        select t.*
+        from (select p.product_id, p.product_name, s.product_costprice, p.product_price, s.product_amount, s.product_expectedamount, s.stock_updateday, s.stock_no
+        , rank()over (partition by p.product_id order by s.stock_no desc) as stock_rank
+        from product p left join stock s on p.product_id=s.product_id ) t
+        where t.stock_rank=1 and (t.product_expectedamount is null or t.product_expectedamount &lt; 1)
+    </select>
 </mapper>

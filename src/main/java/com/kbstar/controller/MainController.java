@@ -54,7 +54,7 @@ public class MainController {
             user = userService.get(user_id);
             logger.info(user_id);
             // db에 정보가 있고, 비밀번호가 일치한 경우 로그인 성공
-            if (user != null && encoder.matches(user_pwd, user.getUser_id())) {
+            if (user != null && encoder.matches(user_pwd, user.getUser_pwd())) {
                 nextPage = "loginsuccess";
                 session.setMaxInactiveInterval(10000);
                 session.setAttribute("loginadm", user);

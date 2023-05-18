@@ -36,16 +36,11 @@ public class ChartController {
     @RequestMapping("/stockimpl")
     @ResponseBody // json 반환
     public Object stockimpl(Model model) throws Exception {
-        // 상품 전체 id 가져오기
-        List<Integer> itemidList = null;
-        itemidList = stockService.selectProductid();
-        // 장바구니 갯수로 재고 업데이트
-        for(Integer itemid : itemidList){
-            try{
-                stockService.modifyExpectedamount(itemid);
-            } catch (Exception e){
-                // 예외 무시 - 상품과 재고간 비즈니스 로직 명확히 해야 함
-            }
+
+        try {
+            stockService.modifyExpectedamount();
+        } catch (Exception e) {
+            // 예외 무시 - 상품과 재고간 비즈니스 로직 명확히 해야 함
         }
 
         List<Stock> list = null;

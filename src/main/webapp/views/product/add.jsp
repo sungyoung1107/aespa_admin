@@ -22,10 +22,8 @@
     })
 </script>
 
-<div class="container-fluid">
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">PRODUCT ADD</h1>
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Product Add</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -53,13 +51,13 @@
                         <div class="col-sm-6">
                             <input type="file" name="img" class="form-control" id="img" placeholder="Input Image">
                         </div>
-                    </div>
+                    </div><br/>
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="category_id">Category_ID:</label><br/>
                         <div class="col-sm-6">
                             <input type="number" name="category_id" class="form-control" id="category_id" placeholder="Input Category_id">
                         </div>
-                    </div>
+                    </div><br/>
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="category_sub_id"> SUB ID: </label>
                         <div class="col-sm-4"> <!--name 은 서버로 보내는 이름을 의미-->
@@ -71,7 +69,7 @@
                                 <option value="3" > 웨딩 </option>
                             </select>
                         </div>
-                    </div>
+                    </div><br/>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button id="register_btn" type="button" class="btn btn-info">Register</button>

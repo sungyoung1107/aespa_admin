@@ -34,8 +34,8 @@ public class StockController {
     String imgdir;
 
     @RequestMapping("/add")
-    public String add(Model model){
-        model.addAttribute("center", dir+"add");
+    public String add(Model model) {
+        model.addAttribute("center", dir + "add");
         return "index";
     }
 
@@ -51,30 +51,27 @@ public class StockController {
 
     @RequestMapping("/all")
     public String all(Model model) throws Exception {
-        // 상품 전체 id 가져오기
-        List<Integer> itemidList = null;
-        itemidList = stockService.selectProductid();
-        // 장바구니 갯수로 재고 업데이트
-        for(Integer itemid : itemidList){
-            try{
-                stockService.modifyExpectedamount(itemid);
-            } catch (Exception e){
-                // 예외 무시 - 상품과 재고간 비즈니스 로직 명확히 해야 함
-            }
+
+        try {
+            stockService.modifyExpectedamount();
+        } catch (Exception e) {
+            // 예외 무시 - 상품과 재고간 비즈니스 로직 명확히 해야 함
         }
+
         List<Stock> stockList = null;
         stockList = stockService.selectFinalstock();
 //        log.info("=======" + stockList.toString() +"=======");
         model.addAttribute("slist", stockList);
-        model.addAttribute("center", dir+"all");
+        model.addAttribute("center", dir + "all");
         return "index";
     }
+
     @RequestMapping("/detail")
     public String detail(Model model, Integer id) throws Exception {
         List<Stock> list = null;
         list = stockService.selectChangehistory(id);
         model.addAttribute("sdetail", list);
-        model.addAttribute("center", dir+"detail");
+        model.addAttribute("center", dir + "detail");
         return "index";
     }
 

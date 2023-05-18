@@ -14,7 +14,6 @@ public interface StockMapper extends AespaMapper<Integer, Stock> {
 
     public List<Stock> selectchangehistory(Integer product_id) throws Exception; // product_id로 조회시 변경등록일자가 있는 List<Stock> 반환
     public List<Stock> selectfinalstock() throws Exception; // 최종 재고 현황
-    public List<Integer> selectproductid() throws Exception; // 예상 재고 업데이트를 위한 product key 추출
-    public void updateexpectedamount(Integer product_id) throws Exception; // 장바구니 갯수로 예상 재고 계산 업데이트
+    public void updateexpectedamount() throws Exception; // 장바구니 갯수로 예상 재고 계산 업데이트
     public List<Stock> getlowstock() throws Exception; // 재고가 1개 미만이거나 입고 처리를 안한 것 출력
 }

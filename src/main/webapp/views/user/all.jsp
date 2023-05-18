@@ -5,7 +5,7 @@
 
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">All User List</h1>
+        <h1 class="mt-4">User All</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
         </ol>
@@ -16,8 +16,7 @@
         </div>
         <div class="card mb-4">
             <div class="card-header">
-                <i class="fas fa-table me-1"></i>
-                All User List
+                User All
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">

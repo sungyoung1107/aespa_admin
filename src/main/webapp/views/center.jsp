@@ -4,15 +4,14 @@
 
     let stockChart = {
         init : function(){
-            const self=  this;
-            self.getData(self);
+            stockChart.getData();
         },
-        getData : function(self){
+        getData : function(){
             $.ajax({
                 url: '/charts/stockimpl',
                 success: function(result){
                     console.log(result);
-                    self.display(result);
+                    stockChart.display(result);
                 }
             });
         },
@@ -132,7 +131,7 @@
         categoryChart.init();
 
         setInterval(stockChart.init, 5000);
-        setInterval(categoryChart.init, 10000);
+        setInterval(categoryChart.init, 5000);
     });
 
 </script>

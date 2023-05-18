@@ -27,10 +27,10 @@
 
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Product Table</h1>
+        <h1 class="mt-4">Product All</h1>
         <div class="card mb-4">
             <div class="card-header">
-                <i class="fas fa-table me-1"> Product Table</i>
+                <i class="fas fa-table me-1"> Product All</i>
                 <form action  ="/product/search" method="submit" id="search_form" class="form-inline well">
 
                     <div class="form-group">

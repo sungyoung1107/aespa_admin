@@ -101,7 +101,7 @@
                              data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="/product/add">Product Add</a>
-                                <a class="nav-link" href="/product/all">Product all</a>
+                                <a class="nav-link" href="/product/all">Product All</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#stockLayouts"
@@ -127,7 +127,7 @@
                              data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="/user/cartInfo">User Cart Info</a>
-                                <a class="nav-link" href="/user/all">User all</a>
+                                <a class="nav-link" href="/user/all">User All</a>
                             </nav>
                         </div>
                     </c:if>
@@ -217,3 +217,4 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
+<!-- 모달 -->

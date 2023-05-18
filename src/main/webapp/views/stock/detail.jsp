@@ -27,7 +27,6 @@
                         <th>제품 원가</th>
                         <th>실 재고 수량</th>
                         <th>재고 등록(변경)일자</th>
-                        <th>재고 등록 바로가기</th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -36,7 +35,6 @@
                         <th>제품 원가</th>
                         <th>실 재고 수량</th>
                         <th>재고 등록(변경)일자</th>
-                        <th>재고 등록 바로가기</th>
                     </tr>
                     </tfoot>
                     <tbody>
@@ -47,12 +45,12 @@
                                               pattern="###,###원"/></td>
                         <td>${obj.product_amount}</td>
                         <td>${obj.stock_updateday}</td>
-                        <td>
-                            <a href="/stock/add" class="btn btn-success">재고 등록(변경)</a>
-                        </td>
                         </c:forEach>
                     </tbody>
                 </table>
+                <div style="text-align: right">
+                    <a href="/stock/add" class="btn btn-success">재고 등록(변경)</a>
+                </div>
             </div>
         </div>
     </div>

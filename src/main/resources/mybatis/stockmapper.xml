@@ -18,11 +18,19 @@
     <!-- 상품 전체 최종 재고 현황 -->
     <select id="selectfinalstock" resultType="stock">
     -- product가 stock 보다 중심인 비즈니스 일 때 (현재 erd)
-        select t.*
-        from (select p.product_id, p.product_name, s.product_costprice, p.product_price, s.product_amount, s.product_expectedamount, s.stock_updateday, s.stock_no
-                   , rank()over (partition by p.product_id order by s.stock_no desc) as stock_rank
-              from product p left join stock s on p.product_id=s.product_id ) t
-        where t.stock_rank=1
+    select t.*
+    from (select p.product_id, p.product_name, s.product_costprice, p.product_price, s.product_amount, ca.cart_quantity
+                 , case when s.product_costprice is null then -ca.cart_quantity
+                      else s.product_expectedamount end as product_expectedamount, s.stock_updateday, s.stock_no
+                  , rank()over (partition by p.product_id order by s.stock_no desc) as stock_rank
+          from product p left join stock s on p.product_id=s.product_id
+                         left join (
+              SELECT product_id, SUM(cart_quantity) AS cart_quantity
+              FROM cart
+              GROUP BY product_id
+          ) ca ON p.product_id = ca.product_id
+         ) t
+    where t.stock_rank = 1
     -- stock이 product보다 중심인 비즈니스일 때
 --         select t.*
 --         from (select s.product_id, p.product_name, s.product_costprice, p.product_price, s.product_amount, s.product_expectedamount, s.stock_updateday, s.stock_no
@@ -30,30 +38,26 @@
 --               from stock s left join product p on s.product_id=p.product_id ) t
 --         where t.stock_rank=1
     </select>
-    <!-- 예상 재고 업데이트를 위한 product key 추출 -->
-    <select id="selectproductid" resultType="Integer"> <!-- 나중에 db는 수정할 필요 있어 보임. erd시 잘 짜야함 -->
-        select distinct product_id from product
-    </select>
     <!-- 장바구니 갯수로 예상 재고 계산 업데이트 -->
-    <update id="updateexpectedamount" parameterType="Integer">
-        -- 개별 상품 테스트
+    <update id="updateexpectedamount">
         UPDATE Stock st
-        SET st.product_expectedamount = st.product_amount - (
-            SELECT cg.cart_quantity
-            FROM (
-            SELECT c.product_id, SUM(c.cart_quantity) AS cart_quantity
-            FROM cart c
-            WHERE c.product_id = #{product_id}
-            GROUP BY c.product_id
-            ) cg
-            )
+        SET st.product_expectedamount = st.product_amount - COALESCE(
+                (
+                    SELECT cg.cart_quantity
+                    FROM (
+                             SELECT c.product_id, SUM(c.cart_quantity) AS cart_quantity
+                             FROM cart c
+                             GROUP BY c.product_id
+                         ) cg
+                    WHERE cg.product_id = st.product_id -- 조인을 사용하여 상품 ID를 매칭
+                ), 0)
         WHERE (st.stock_no, st.product_id) IN (
             SELECT t.stock_no, t.product_id
             FROM (
-            SELECT s.stock_no, s.product_id, RANK() OVER (PARTITION BY s.product_id ORDER BY s.stock_no DESC) AS stock_rank
-            FROM stock s) t
-            WHERE t.stock_rank = 1 AND t.product_id = #{product_id}
-            )
+                     SELECT s.stock_no, s.product_id, RANK() OVER (PARTITION BY s.product_id ORDER BY s.stock_no DESC) AS stock_rank
+                     FROM stock s) t
+            WHERE t.stock_rank = 1
+        )
     </update>
     <!-- update 겸용으로 쓸 예정 -->
     <insert id="insert" parameterType="stock">

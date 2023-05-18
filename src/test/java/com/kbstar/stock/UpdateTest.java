@@ -18,10 +18,10 @@ public class UpdateTest {
 
     @Test
     void contextLoads(){
-        Stock stock = new Stock();
-        stock.setProduct_id(1000);
+//        Stock stock = new Stock();
+//        stock.setProduct_id(1000);
         try {
-            service.modifyExpectedamount(stock.getProduct_id());
+            service.modifyExpectedamount();
             service.selectFinalstock();
         } catch (Exception e) {
             log.info("에러 ..... ");

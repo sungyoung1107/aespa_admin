@@ -6,15 +6,14 @@
 
   let stockChart = {
     init : function(){
-      const self=  this;
-      self.getData(self);
+      stockChart.getData();
     },
-    getData : function(self){
+    getData : function(){
       $.ajax({
         url: '/charts/stockimpl',
         success: function(result){
           console.log(result);
-          self.display(result);
+          stockChart.display(result);
         }
       });
     },
@@ -138,19 +137,18 @@
 
 <style>
   #container {
-    width: 80%;
+    width: 100%;
     height: 50%;
   }
 </style>
 
 <main>
   <div class="container-fluid px-4">
-    <h1 class="mt-4">재고 관리 차트</h1>
     <br>
     <div class="card mb-4">
       <div class="card-header">
         <i class="fas fa-table me-1"></i>
-        재고 관리 차트
+        차트
       </div>
       <div class="card-body">
         <div id="container"></div>

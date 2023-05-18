@@ -57,13 +57,9 @@ public class StockService implements AespaService<Integer, Stock> {
         return mapper.selectfinalstock();
     }
 
-    // 예상 재고 업데이트를 위한 product key 추출
-    public List<Integer> selectProductid() throws Exception {
-        return mapper.selectproductid();
-    }
     // 장바구니 갯수로 예상 재고 계산 업데이트
-    public void modifyExpectedamount(Integer product_id) throws Exception {
-        mapper.updateexpectedamount(product_id);
+    public void modifyExpectedamount() throws Exception {
+        mapper.updateexpectedamount();
     }
     // 재고 부족 리스트
     public List<Stock> getLowstock() throws Exception {

@@ -28,6 +28,7 @@
                         <th>제품 원가</th>
                         <th>제품 가격</th>
                         <th>실 재고수량</th>
+                        <th>장바구니 수량</th>
                         <th>예상 재고잔여수량(실 재고수량-장바구니 수량)</th>
                         <th>비고</th>
                     </tr>
@@ -39,6 +40,7 @@
                         <th>제품 원가</th>
                         <th>제품 가격</th>
                         <th>실 재고수량</th>
+                        <th>장바구니 수량</th>
                         <th>예상 재고잔여수량</th>
                         <th>비고</th>
                     </tr>
@@ -52,6 +54,7 @@
                                                   pattern="###,###원"/></td>
                             <td><fmt:formatNumber value="${obj.product_price}" type="number" pattern="###,###원"/></td>
                             <td>${obj.product_amount}</td>
+                            <td>${obj.cart_quantity}</td>
                             <td>${obj.product_expectedamount}</td>
                             <td>
                                 <c:choose>

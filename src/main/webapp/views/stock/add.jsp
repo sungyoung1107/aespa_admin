@@ -21,23 +21,39 @@
             <div class="card-body">
                 <form id="stock_add" class="form-horizontal well" action="/stock/addimpl" method="get">
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="product_id">제품번호 </label><br/>
-                        <div class="col-sm-6"> <!--name 은 서버로 보내는 이름을 의미-->
-                            <input type="number" name="product_id" class="form-control" id="product_id" placeholder="제품번호 입력(xxxx)">
+                        <div class="row">
+                            <label class="control-label col-sm-2" for="product_id">제품번호 </label><br/>
+                            <div class="col-sm-3"> <!--name 은 서버로 보내는 이름을 의미-->
+                                <input type="number" name="product_id" class="form-control" id="product_id"
+                                       placeholder="제품번호 입력(xxxx)">
+                            </div>
+                            <div class="col-sm-3">
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">번호 찾기</button>
+                            </div>
                         </div>
-                    </div><br/>
+                    </div>
+                    <br/>
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="product_costprice">원가 </label><br/>
-                        <div class="col-sm-6">
-                            <input type="number" name="product_costprice" class="form-control" id="product_costprice" placeholder="제품원가 입력">
+                        <div class="row">
+                            <label class="control-label col-sm-2" for="product_costprice">원가 </label><br/>
+                            <div class="col-sm-3">
+                                <input type="number" name="product_costprice" class="form-control"
+                                       id="product_costprice"
+                                       placeholder="제품원가 입력">
+                            </div>
                         </div>
-                    </div><br/>
+                    </div>
+                    <br/>
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="product_amount">재고 </label><br/>
-                        <div class="col-sm-6">
-                            <input type="number" name="product_amount" class="form-control" id="product_amount" placeholder="재고(변경 시 변경 후 재고) 입력">
+                        <div class="row">
+                            <label class="control-label col-sm-2" for="product_amount">재고 </label><br/>
+                            <div class="col-sm-3">
+                                <input type="number" name="product_amount" class="form-control" id="product_amount"
+                                       placeholder="재고(변경 시 변경 후 재고) 입력">
+                            </div>
                         </div>
-                    </div><br/>
+                    </div>
+                    <br/>
                     <button type="submit" class="btn btn-primary" name="stock_add_btn"
                             id="stock_add_btn">재고 등록(변경)
                     </button>
@@ -46,3 +62,21 @@
         </div>
     </div>
 </main>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>This is a large modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

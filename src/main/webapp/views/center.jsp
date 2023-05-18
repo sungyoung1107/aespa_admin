@@ -90,12 +90,12 @@
                 },
                 xAxis: {
                     categories: [
-                        '101',
-                        '102',
-                        '103',
-                        '104',
-                        '105',
-                        '200'
+                        '귀걸이',
+                        '반지',
+                        '시계',
+                        '팔찌',
+                        '목걸이',
+                        '기타'
                     ],
                     crosshair: true
                 },
@@ -125,13 +125,40 @@
         }
     }
 
+    let popularChart = {
+        init : function() {
+            popularChart.getData();
+        },
+        getData : function (){
+            $.ajax({
+                url:'/charts/popular',
+                success: function (result) {
+                    console.log(result);
+                    // alert("인기상품입니다 : "+ result);
+                    popularChart.display(result);
+                },
+                error  : function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        },
+        display : function(result){
+            $("#item1").text("'"+result["1위"]+"' 가 고객의 마음을 가장 많이 사로잡았어요!"+"  실시간 카트에 담긴 갯수는 "+result["1위수량"]+"개!!");
+            $("#item2").text("'"+result["2위"]+"' 가 2위로 달리고 있어요!+"+"  실시간 카트에 담긴 갯수는 "+result["2위수량"]+"개!!");
+            $("#item3").text("'"+result["3위"]+"' 가 3위!!!!!"+"  실시간 카트에 담긴 갯수는 "+result["3위수량"]+"개!!");
+            $("#item4").text("'"+
+                result["4위"]+"' 가 4위가 담겼네요!"+"  실시간 카트에 담긴 갯수는 "+result["4위수량"]+"개!!");
+        }
+    }
 
     $(document).ready(function () {
         stockChart.init();
         categoryChart.init();
+        popularChart.init();
 
         setInterval(stockChart.init, 5000);
         setInterval(categoryChart.init, 5000);
+        setInterval(popularChart.init, 5000);
     });
 
 </script>
@@ -140,10 +167,48 @@
     <div class="container-fluid px-4">
         <h1 class="mt-4">Dashboard</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Dashboard</li>
+            <li class="breadcrumb-item active">오늘 고객의 마음을 사로잡은 아이템은 무엇일까요?</li>
         </ol>
+        <div class="row">
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body">오늘의 관심 상품 1위</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <span id="item1"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4">
+                    <div class="card-body">오늘의 관심 상품 2위</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <span id="item2"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body">오늘의 관심 상품 3위</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <span id="item3"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-danger text-white mb-4">
+                    <div class="card-body">오늘의 관심 상품 4위</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <span id="item4"></span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
         <div class="container-fluid px-4">
             <div class="card mb-4">
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">한 눈에 보는 차트</li>
+                </ol>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm">

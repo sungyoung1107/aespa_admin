@@ -1,6 +1,8 @@
 package com.kbstar.controller;
 
+import com.kbstar.dto.Product;
 import com.kbstar.dto.Stock;
+import com.kbstar.service.ProductService;
 import com.kbstar.service.StockService;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
@@ -21,6 +23,9 @@ public class ChartController {
 
     @Autowired
     StockService stockService;
+
+    @Autowired
+    ProductService productService;
 
     String dir = "chart/";
 
@@ -70,6 +75,45 @@ public class ChartController {
         jo.put("categories", categories);
         jo.put("amount", amount);
         jo.put("expectedamount", expectedAmount);
+
+        return jo;
+    }
+    @RequestMapping("/popular")
+    @ResponseBody // json 반환
+    public Object popular(Model model) throws Exception {
+
+        List<Product> list = null;
+        try {
+            list = productService.selectPopularitem();
+        } catch (Exception e) {
+            // 예외 무시 - 상품과 재고간 비즈니스 로직 명확히 해야 함
+        }
+        /*
+        let jo = {
+                1 : "ㅇㅇㅇㅇ",
+                2 : "ㅇㅇㅇㅇ"
+         }
+         */
+        JSONObject jo = new JSONObject();
+        // 1위~4위 상품 넣기
+        for (Product item : list){
+            if(item.getRank()==1){
+                jo.put("1위", item.getProduct_name());
+                jo.put("1위수량", item.getCart_quantity());
+            }
+            if(item.getRank()==2){
+                jo.put("2위", item.getProduct_name());
+                jo.put("2위수량", item.getCart_quantity());
+            }
+            if(item.getRank()==3){
+                jo.put("3위", item.getProduct_name());
+                jo.put("3위수량", item.getCart_quantity());
+            }
+            if(item.getRank()==4){
+                jo.put("4위", item.getProduct_name());
+                jo.put("4위수량", item.getCart_quantity());
+            }
+        }
 
         return jo;
     }

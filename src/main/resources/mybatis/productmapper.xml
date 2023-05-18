@@ -41,5 +41,15 @@
     <delete id="delete" parameterType="Integer">
         DELETE FROM product WHERE product_id=#{product_id}
     </delete>
+    <!-- 동일순서 미부여-->
+    <select id="selectpopularitem" resultType="product">
+        select t.cart_date, t.product_id, t.product_name, t.cart_quantity, ROW_NUMBER()over (partition by t.cart_date order by t.cart_quantity desc) as rank
+        from (select EXTRACT(YEAR FROM c.cart_date)||LPAD(EXTRACT(MONTH FROM c.cart_date), 2, '0')||LPAD(EXTRACT(DAY FROM c.cart_date), 2, '0') AS cart_date, c.product_id, p.product_name, sum(c.cart_quantity) as cart_quantity
+              from cart c left join product p
+                                    on c.product_id = p.product_id
+              group by EXTRACT(YEAR FROM c.cart_date)||LPAD(EXTRACT(MONTH FROM c.cart_date), 2, '0')||LPAD(EXTRACT(DAY FROM c.cart_date), 2, '0'), c.product_id, p.product_name ) t
+
+        where t.cart_date = EXTRACT(YEAR FROM sysdate)||LPAD(EXTRACT(MONTH FROM sysdate), 2, '0')||LPAD(EXTRACT(DAY FROM sysdate), 2, '0')
+    </select>
 
 </mapper>

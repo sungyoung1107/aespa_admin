@@ -34,41 +34,42 @@
                 <form action  ="/product/search" method="submit" id="search_form" class="form-inline well">
 
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="product_name">Name:</label>
-                        <div class="col-sm-4">
+                        <label class="control-label col-sm-4" for="product_name">Name:</label>
+<%--                        <div class="col-sm-4">--%>
                             <input type="text" name="product_name" class="form-control" id="product_name"
                                    value="${ms.product_name}"
                             >
-                        </div>
+<%--                        </div>--%>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="product_price">Price:</label>
-                        <div class="col-sm-4">
+                        <label class="control-label col-sm-4" for="product_price">Price:</label>
+<%--                        <div class="col-sm-4">--%>
                             <input type="number" name="product_price" class="form-control" id="product_price"
                                    value="${ms.product_price}"
                             >
-                        </div>
+<%--                        </div>--%>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="startdate">Start Date:</label>
-                        <div class="col-sm-4">
+                        <label class="control-label col-sm-4" for="startdate">Start Date:</label>
+<%--                        <div class="col-sm-4">--%>
                             <input type="date" name="startdate" class="form-control" id="startdate" placeholder="Enter title"
                                    value="${ms.startdate}"
                             >
-                        </div>
+<%--                        </div>--%>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="enddate">End Date:</label>
-                        <div class="col-sm-4">
+                        <label class="control-label col-sm-4" for="enddate">End Date:</label>
+<%--                        <div class="col-sm-4">--%>
                             <input type="date" name="enddate" class="form-control" id="enddate" placeholder="Enter title"
                                    value="${ms.enddate}"
                             >
-                        </div>
+<%--                        </div>--%>
                     </div>
+                    &nbsp;
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-2">
+<%--                        <div class="col-sm-offset-2 col-sm-2">--%>
                             <button id="search_btn" type="button" class="btn btn-info">Search</button>
-                        </div>
+<%--                        </div>--%>
                     </div>
                 </form>
             </div>

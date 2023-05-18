@@ -75,8 +75,12 @@
                                 <label class="input-label">성별</label>
                                 <select class="form-control" name="user_gender" id="user_gender">
                                     <option value="">성별을 선택해주세요</option>
-                                    <option value="M" <c:if test="${cdetail.user_gender.equalsIgnoreCase('M')}">selected</c:if>>남자</option>
-                                    <option value="F" <c:if test="${cdetail.user_gender.equalsIgnoreCase('F')}">selected</c:if>>여자</option>
+                                    <option value="M"
+                                            <c:if test="${cdetail.user_gender.equalsIgnoreCase('M')}">selected</c:if>>남자
+                                    </option>
+                                    <option value="F"
+                                            <c:if test="${cdetail.user_gender.equalsIgnoreCase('F')}">selected</c:if>>여자
+                                    </option>
                                 </select>
                             </div>
 
@@ -136,10 +140,13 @@
                             <div class="input-group mb-3">
                                 <label for="user_birthday" class="input-label">생년월일</label>
                                 <input type="date" name="user_birthday" class="form-control birthday-input"
-                                       id="user_birthday" placeholder="Enter Birthday" value="${cdetail.user_birthday}" >
+                                       id="user_birthday" placeholder="Enter Birthday" value="${cdetail.user_birthday}">
                             </div>
 
                             <div class="container" style="text-align: right">
+                                <button class="btn btn-success" type="button" id="btnSendcnum">
+                                    임시 비밀번호 재전송
+                                </button>
                                 <button type="button" class="btn btn-primary" name="update_btn"
                                         id="update_btn">회원정보 수정
                                 </button>

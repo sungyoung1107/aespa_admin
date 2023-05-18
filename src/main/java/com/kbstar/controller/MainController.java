@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.Random;
 
 @Slf4j
 @Controller
@@ -119,6 +120,27 @@ public class MainController {
         }
 
         return "redirect:/";
+    }
+
+    @RequestMapping(value="/forgotPwd", method= RequestMethod.POST)
+    @ResponseBody // RestController가 아닌 일반 Controller이기에 ResponseBody 필수
+    public String forgotPwd(String user_id) throws Exception {
+        log.info("비밀번호 변경 화면");
+        User user = new User();
+        //임시 비밀번호 생성 후 셋
+        Random random = new Random();
+        String checkNum = Integer.toString(random.nextInt(888888) + 111111); /* 0 ~ 888887 */ /* 111111~999998 */
+        log.info(checkNum);
+        // 임시 비밀번호 암호화
+        user.setUser_pwd(encoder.encode(checkNum));
+
+        // id 셋
+        user.setUser_id(user_id);
+        
+        // 비밀번호 강제 변경
+        userService.updatePwd(user);
+        
+        return checkNum;
     }
 
 }

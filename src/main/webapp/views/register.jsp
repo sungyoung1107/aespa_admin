@@ -42,7 +42,7 @@
                                     <!-- address 통합 주소 보내기 , 통합은 js에서 -->
                                     <input type="hidden" id="user_address" name="user_address" value=""/>
                                     <div class="container mt-3">
-                                        <div class="input-group mb-3">
+                                        <div class="input-group mb-2">
                                             <label for="user_id" class="input-label">ID</label>
                                             <input
                                                     type="text"

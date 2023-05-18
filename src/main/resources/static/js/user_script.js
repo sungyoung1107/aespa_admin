@@ -93,9 +93,30 @@ let user_detail_form = {
         let user_address = $("#user_address1").val() + " " + $("#user_address2").val() + " " + $("#user_address3").val();
         $("#user_address").val(user_address);
 
+        $("#btnSendcnum").click(function () {
+            console.log("인증번호 전송"); // 인증번호 전송
+            let user_id = $("#user_id").val();
+            console.log("user_id : "+ user_id); // 인증번호 전송
+
+            $.ajax({
+               type: "post",
+               url: "/forgotPwd",
+               data : {
+                   user_id: user_id
+               },
+                success: function (result) {
+                    alert("비밀번호 초기화 : "+ result);
+                },
+                error  : function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        });
+
         $('#update_btn').click(function(){
             self.send();
         });
+
         $('#delete_btn').click(function(){
             let c = confirm("삭제하시겠습니까?");
             if(c==true){

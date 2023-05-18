@@ -28,13 +28,20 @@ public class StockController {
     @Autowired
     StockService stockService;
 
+    @Autowired
+    ProductService productService;
+
     String dir = "stock/";
 
     @Value("${uploadimgdir}")  // application properties 안에서 설정해준 imgdir 경로를 가져옴
     String imgdir;
 
     @RequestMapping("/add")
-    public String add(Model model) {
+    public String add(Model model) throws Exception {
+        // 아이템 정보 불러오기
+        List<Product> prolist = productService.get();
+
+        model.addAttribute("prolist", prolist);
         model.addAttribute("center", dir + "add");
         return "index";
     }

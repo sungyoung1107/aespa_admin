@@ -12,5 +12,6 @@ import java.util.List;
 public interface UserMapper extends AespaMapper<String, User> {
 
     public List<User> getallusercart() throws Exception;
+    public void updatepwd(User user);
 
 }

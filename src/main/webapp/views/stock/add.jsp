@@ -24,11 +24,13 @@
                         <div class="row">
                             <label class="control-label col-sm-2" for="product_id">제품번호 </label><br/>
                             <div class="col-sm-3">
-                                <input type="number" name="product_id" class="form-control" id="product_id" placeholder="제품번호 입력(xxxx)">
+                                <input type="number" name="product_id" class="form-control" id="product_id"
+                                       placeholder="제품번호 입력(xxxx)">
                             </div>
                             <div class="col-sm-3">
-                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
-                                    번호 찾기
+                                <button type="button" class="btn btn-info btn-lg btn-sm" data-toggle="modal"
+                                        data-target="#myModal">
+                                    상품번호 찾기
                                 </button>
                             </div>
                         </div>
@@ -68,14 +70,13 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Item </h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Item List</h4>
             </div>
             <div class="modal-body">
-                <p>This is a large modal.</p>
-                <button type="button" class="btn btn-primary" onclick="selectItem(1)">Item 1</button>
-                <button type="button" class="btn btn-primary" onclick="selectItem(2)">Item 2</button>
-                <button type="button" class="btn btn-primary" onclick="selectItem(3)">Item 3</button>
+                <c:forEach var="obj" items="${prolist}">
+                    <p>${obj.product_id} : ${obj.product_name}
+                        <input type="radio" name="product_target" onclick="selectItem(${obj.product_id})"/></p>
+                </c:forEach>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -86,7 +87,12 @@
 
 <script>
     function selectItem(itemId) {
-        document.getElementById("product_id").value = itemId;
-        $('#myModal').modal('hide'); // 모달 닫기
+        $("input:radio[name='product_target']").removeAttr("checked"); //우선 체크되어 있는 값을 초기화
+        $("#product_id").val(itemId); // id 값을 제품번호 input창에 넣기
+        closeModal(); // 안먹음
+    }
+
+    function closeModal() {
+        $("#myModal").modal('hide');
     }
 </script>

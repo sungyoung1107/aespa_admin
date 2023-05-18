@@ -16,6 +16,9 @@
         UPDATE shopuser SET user_name=#{user_name}, user_gender=#{user_gender}, user_contact=#{user_contact},
                              user_address=#{user_address}, user_birthday=#{user_birthday} WHERE user_id=#{user_id}
     </update>
+    <update id="updatepwd" parameterType="user">
+        UPDATE shopuser SET user_pwd=#{user_pwd} WHERE user_id=#{user_id}
+    </update>
     <delete id="delete" parameterType="String">
         DELETE FROM shopuser WHERE user_id=#{user_id}
     </delete>

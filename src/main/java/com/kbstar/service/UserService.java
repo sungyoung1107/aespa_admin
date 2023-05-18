@@ -45,4 +45,8 @@ public class UserService implements AespaService<String, User> {
     public List<User> getAllusercart() throws Exception {
         return mapper.getallusercart();
     }
+
+    public void updatePwd(User user) throws Exception {
+        mapper.updatepwd(user);
+    }
 }

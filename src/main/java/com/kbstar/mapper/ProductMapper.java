@@ -15,5 +15,6 @@ import java.util.List;
 public interface ProductMapper extends AespaMapper<Integer, Product> {
     public List<Product> search(ProductSearch ms);
     public List<Product> selectpopularitem(); // 오늘 날짜 인기 상품 순서 추출
+    public List<Product> selectpopularitem_y(); // 어제 날짜 인기 상품 순서 추출
 
 }

@@ -58,4 +58,9 @@ public class ProductService implements AespaService<Integer, Product> {
         return mapper.selectpopularitem();
     }
 
+    // 어제 날짜 인기 상품 순서 추출
+    public  List<Product> selectPopularitem_y() throws Exception {
+        return mapper.selectpopularitem_y();
+    }
+
 }

@@ -117,41 +117,45 @@ public class ChartController {
 
         return jo;
     }
+
+    // 어제 날짜 인기 상품 (카트 기준)
+    @RequestMapping("/popular_y")
+    @ResponseBody // json 반환
+    public Object popular_y(Model model) throws Exception {
+
+        List<Product> list = null;
+        try {
+            list = productService.selectPopularitem_y();
+        } catch (Exception e) {
+            // 예외 무시 - 상품과 재고간 비즈니스 로직 명확히 해야 함
+        }
+        /*
+        let jo = {
+                1 : "ㅇㅇㅇㅇ",
+                2 : "ㅇㅇㅇㅇ"
+         }
+         */
+        JSONObject jo = new JSONObject();
+        // 1위~4위 상품 넣기
+        for (Product item : list){
+            if(item.getRank()==1){
+                jo.put("1위", item.getProduct_name());
+                jo.put("1위수량", item.getCart_quantity());
+            }
+            if(item.getRank()==2){
+                jo.put("2위", item.getProduct_name());
+                jo.put("2위수량", item.getCart_quantity());
+            }
+            if(item.getRank()==3){
+                jo.put("3위", item.getProduct_name());
+                jo.put("3위수량", item.getCart_quantity());
+            }
+            if(item.getRank()==4){
+                jo.put("4위", item.getProduct_name());
+                jo.put("4위수량", item.getCart_quantity());
+            }
+        }
+
+        return jo;
+    }
 }
-
-//        List<Sales> list = null;
-//        list = salesService.groupsales();
-//
-//        data : { categories:[],
-//                 data: []}
-//        JSONObject joData = new JSONObject();
-//
-//        // 월 매출액
-//        JSONArray jaLabel = new JSONArray();
-//        for(int i =1 ; i <13 ; i++) {
-//            jaLabel.add(i);
-//        }
-//        JSONObject joInnerData = new JSONObject();
-//        // innerdata
-//        JSONArray jaInnerData = new JSONArray();
-//        for (Sales sales : list){
-//            // 매출액이 없는 경우 0으로 세팅
-//            if(sales.getPrice() == null || sales.getPrice() == 0){
-//                jaInnerData.add(0);
-//                continue; // 아래구문 패스
-//            }
-//            jaInnerData.add(sales.getPrice()); // 매출액이 있는 경우 매출액 set
-//        } // [XXX, XXX, XXX, ....]
-//        joInnerData.put("data", joInnerData); // {data: []}
-//
-//        // datasets
-//        JSONArray jaDatasets = new JSONArray();
-//        jaDatasets.add(joInnerData); // [{data: []}]
-//
-//        joData.put("labels", jaLabel); // labels : [1,2,3,4,5,6,7,8,9,10,11,12]
-//        joData.put("datasets", jaDatasets); // datasets: [{data: []}]
-//
-//        return joData;
-
-
-

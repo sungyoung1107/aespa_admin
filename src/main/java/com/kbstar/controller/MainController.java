@@ -57,7 +57,7 @@ public class MainController {
             // db에 정보가 있고, 비밀번호가 일치한 경우 로그인 성공
             if (user != null && encoder.matches(user_pwd, user.getUser_pwd())) {
                 nextPage = "loginsuccess";
-                session.setMaxInactiveInterval(10000);
+                session.setMaxInactiveInterval(1000000);
                 session.setAttribute("loginadm", user);
             }
 //            // 암호화 이전 (나중에 지우기)
